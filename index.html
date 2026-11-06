@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+ 
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+                </svg>
+                <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+   <main>
+
+    <!-- Home -->
+    <section id="home" class="hero">
+        <video id="bgVideo" class="bg-video" autoplay muted loop playsinline></video>
+        <div class="overlay"></div>
+
+<div class="hero-content">
+    <div class="portfolio-text">
+        OBITO | PORTFOLIO
+    </div>
+</div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="aboutecon">
+        
+        <div class="aboutetext"><h2>About Me</h2>
+        <p>I'm OBITO, an IT student who can't  be move.</p>
+        <h2>I'm frontend devoper</h2></div>
+        <div class="aboutepic">
+            <img class="p" src="images/Untitled-1.png" alt="">
+        </div>
+    </section>
+
+    <!-- Skills ទី 1 -->
+    <section id="skills" class="skills-section">
+
+        <div class="section-heading">
+            <span class="heading-tag">main skill</span>
+            <h2>Static <span>Website</span></h2>
+        </div>
+
+        <div class="skills-layout">
+            <div class="skill-list">
+
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/HTML.jpg" alt="HTML">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 80"></span></span>
+                    <span class="skill-percent" style="--level: 80"></span>
+                </div>
+
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/CSS.webp" alt="CSS">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 60"></span></span>
+                    <span class="skill-percent" style="--level: 60"></span>
+                </div>
+
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/JAVA.webp" alt="JavaScript">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 20"></span></span>
+                    <span class="skill-percent" style="--level: 20"></span>
+                </div>
+
+            </div>
+
+            <div class="skill-detail">
+                <img src="images/humenfly.png" alt="My skills">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills ទី 2 (heading ផ្សេង) -->
+    <section class="skills-section">
+
+        <div class="section-heading">
+            <span class="heading-tag">support</span>
+            <h2>Graphic <span>Design</span></h2>
+        </div>
+
+        <div class="skills-layout">
+            <div class="skill-list">
+
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/PS.jpg" alt="Git">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 60"></span></span>
+                    <span class="skill-percent" style="--level: 60"></span>
+                </div>
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/AI.webp" alt="Git">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 40"></span></span>
+                    <span class="skill-percent" style="--level: 40"></span>
+                </div>
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/FIGMA.webp" alt="Git">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 40"></span></span>
+                    <span class="skill-percent" style="--level: 40"></span>
+                </div>
+
+                <!-- បន្ថែម skill ទៀតដោយចម្លង .skill-item -->
+
+            </div>
+
+            <div class="skill-detail gallery">
+    <div class="marquee" data-wheel="off">
+        <div class="marquee-track">
+
+            <!-- ជុំទី 1 -->
+            <div class="project-card"><img src="images/p1.jpg" alt="Tool 1"></div>
+            <div class="project-card"><img src="images/p4.jpg" alt="Tool 2"></div>
+            <div class="project-card"><img src="images/p5.jpg" alt="Tool 3"></div>
+            <div class="project-card"><img src="images/p6.jpg" alt="Tool 4"></div>
+            <div class="project-card"><img src="images/p2.jpg" alt="Tool 5"></div>
+
+            <!-- ជុំទី 2 (ចម្លងដូចគ្នាបេះបិទ) -->
+            <div class="project-card" aria-hidden="true"><img src="images/p3.jpg" alt=""></div>
+            <div class="project-card" aria-hidden="true"><img src="images/p7.jpg" alt=""></div>
+            
+
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+    <section class="skills-section">
+
+        <div class="section-heading">
+            <span class="heading-tag">support</span>
+            <h2>Video <span>Graphic</span></h2>
+        </div>
+
+        <div class="skills-layout">
+            <div class="skill-list">
+
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/AE.webp" alt="Git">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 50"></span></span>
+                    <span class="skill-percent" style="--level: 50"></span>
+                </div>
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/PR.webp" alt="Git">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 40"></span></span>
+                    <span class="skill-percent" style="--level: 40"></span>
+                </div>
+                <div class="skill-item">
+                    <img class="skill-logo" src="logo/davin.jpg" alt="Git">
+                    <span class="skill-bar"><span class="skill-fill" style="--level: 30"></span></span>
+                    <span class="skill-percent" style="--level: 30"></span>
+                </div>
+
+                <!-- បន្ថែម skill ទៀតដោយចម្លង .skill-item -->
+
+            </div>
+
+ <div class="skill-detail video-card">
+
+    <img src="images/thumbnail.jpg" class="thumbnail">
+
+    <button class="preview-btn" onclick="playVideo()">
+        ▶ Preview
+    </button>
+
+    <video id="previewVideo" playsinline>
+        <source src="edit.mp4" type="video/mp4">
+    </video>
+
+</div>
+    </section>
+
+<!-- Projects -->
+<section id="projects">
+
+    <div class="section-heading">
+        <span class="heading-tag">My Work</span>
+        <h2>My <span>Projects</span></h2>
+    </div>
+
+    <div class="marquee">
+        <div class="marquee-track">
+
+            <!-- ជុំទី 1 -->
+            <a class="project-card" href="projects/project1.html"><img src="images/Screenshot 2026-11-06 022155.png" alt="Project 1"></a>
+            <a class="project-card" href="projects/project2.html"><img src="images/s2.png" alt="Project 2"></a>
+            <a class="project-card" href="projects/project3.html"><img src="images/s3.png" alt="Project 3"></a>
+            
+
+            <!-- ជុំទី 2 (ចម្លងដូចគ្នាបេះបិទ) -->
+            <a class="project-card" href="projects/project1.html" aria-hidden="true" tabindex="-1"><img src="images/Screenshot 2026-11-06 022155.png" alt=""></a>
+            <a class="project-card" href="projects/project2.html" aria-hidden="true" tabindex="-1"><img src="images/s2.png" alt=""></a>
+            <a class="project-card" href="projects/project3.html" aria-hidden="true" tabindex="-1"><img src="images/s3.png" alt=""></a>
+           
+
+        </div>
+    </div>
+
+</section>
+
+    <!-- Contact -->
+    <!-- Contact -->
+<section id="contact">
+    <div class="section-heading">
+        <span class="heading-tag">Ask Me</span>
+        <h2>Ask <span>AI</span> About Me</h2>
+    </div>
+
+    <div class="chat">
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg bot">សួស្តី! ខ្ញុំជា AI របស់ DOM។ សួរអ្វីអំពី DOM បានទាំងអស់ 😊</div>
+        </div>
+
+        <div class="chat-suggest">
+            <button type="button">មាន Project អ្វីខ្លះ?</button>
+            <button type="button">មានសង្សាឬនៅ?</button>
+            <button type="button">ទាក់ទងយ៉ាងម៉េច?</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="វាយសំណួររបស់អ្នក..." autocomplete="off">
+            <button type="button" id="chatSend">Send</button>
+        </div>
+    </div>
+</section>
+
+</main>
+
+    <footer>
+        <p>&copy; 2026 DOM</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

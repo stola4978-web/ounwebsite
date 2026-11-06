@@ -1,0 +1,780 @@
+/* ==================== Variables ==================== */
+:root {
+    --bg: #08080D;
+    --section-bg: #11111A;
+    --card-bg: #191925;
+
+    --primary: #A855F7;
+    --secondary: #60A5FA;
+
+    --white: #F8FAFC;
+    --gray: #A1A1AA;
+    --muted: #71717A;
+
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================== Base ==================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Video Card */
+
+.video-card {
+    position: relative;
+    overflow: hidden;
+    background: black;
+}
+
+.video-card .thumbnail {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.video-card .preview-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    background: var(--secondary);
+    color: white;
+    cursor: pointer;
+}
+
+.video-card video {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+}
+
+/* Playing */
+
+.video-card.playing .thumbnail,
+.video-card.playing .preview-btn {
+    display: none;
+}
+
+.video-card.playing video {
+    display: block;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+}
+
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+section {
+    min-height: 100vh;
+    padding: 100px 10%;
+}
+
+/* ==================== Navbar ==================== */
+header {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 14px 30px;
+    background: rgba(10, 10, 20, 0.35);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+}
+
+.navbar a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    font-size: 20px;
+    transform: scale(1);
+    transition: all 0.2s ease;
+    flex-basis: 300px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.navbar a:hover{
+     transform: scale(1.2);
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 0 20px 2px gray;
+    
+}
+.navbar a:active{
+    color: var(--secondary);
+}
+
+
+
+
+/* ==================== Theme button ==================== */
+.theme-btn {
+    background: transparent;
+    color: var(--white);
+    border: none;
+    border-left: 1px solid #444;
+    padding-left: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.theme-btn .icon {
+    width: 26px;
+    height: 26px;
+}
+
+.theme-btn:hover .icon {
+    color: var(--secondary);
+}
+
+.icon-sun  { display: none; }
+.icon-moon { display: block; }
+
+.theme-btn.dark .icon-sun  { display: block; }
+.theme-btn.dark .icon-moon { display: none; }
+
+/* ==================== Hero ==================== */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 13, 0.65);
+    z-index: 1;
+    opacity: 0;
+}
+
+.overlay.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 65px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: var(--secondary);
+}
+
+.hero-content p {
+    color: var(--gray);
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--secondary);
+    color: #08080D;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+.btn:hover {
+    background: var(--white);
+}
+
+/* ==================== Section heading ==================== */
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading-tag {
+    display: inline-block;
+    padding: 6px 18px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+}
+
+.section-heading h2 {
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+.section-heading h2 span {
+    color: var(--secondary);
+}
+
+/* ==================== Skills (full screen) ==================== */
+.skills-section {
+    min-height: 100vh;
+    padding: 100px 4% 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.skills-layout {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 20px;
+    min-height: 400px;
+}
+
+/* ----- ឆ្វេង ----- */
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.skill-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 22px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+/* ==================== Skill card hover ==================== */
+.skill-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-4px) scale(1.05);
+    z-index: 5;
+    border-color: var(--secondary);
+    background: rgba(96, 165, 250, 0.12);
+    box-shadow: 0 12px 30px rgba(96, 165, 250, 0.3);
+}
+
+/* logo ពង្រីកបន្តិច */
+.skill-logo {
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-logo {
+    transform: scale(1.25) rotate(-4deg);
+}
+
+/* bar ភ្លឺ */
+.skill-fill {
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.skill-item:hover .skill-fill {
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    box-shadow: 0 0 12px var(--secondary);
+}
+
+.skill-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.skill-bar {
+    flex: 1;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    display: block;
+    height: 100%;
+    width: calc(var(--level) * 1%);        /* កែលេខ --level ក្នុង HTML */
+    background: var(--secondary);
+    border-radius: 20px;
+}
+
+.skill-percent {
+    min-width: 52px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--secondary);
+    counter-reset: pct var(--level);
+}
+
+.skill-percent::after {
+    content: counter(pct) "%";
+}
+
+/* ----- ស្តាំ (រូបតែមួយ) ----- */
+.skill-detail {
+    position: relative;
+    background: black;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.skill-detail:hover {
+    border-color: var(--secondary);
+}
+
+.skill-detail > img {
+    position: absolute;
+    inset: 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    object-fit: contain;
+}
+
+/* ==================== Marquee (scroll ដោយដៃ + loop) ==================== */
+.marquee {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 40px 0;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.marquee::-webkit-scrollbar {
+    display: none;
+}
+
+.marquee.dragging {
+    cursor: grabbing;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+}
+
+/* ==================== Projects ==================== */
+#projects {
+    min-height: 100vh;
+    padding: 100px 0 60px;
+}
+
+#projects .section-heading {
+    padding: 0 6%;
+}
+
+.project-card {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 420px;
+    margin-right: 25px;
+    display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.08);               /* ធំតែ card ដែល hover */
+    z-index: 5;
+    border-color: var(--secondary);
+    box-shadow: 0 15px 35px rgba(96, 165, 250, 0.25);
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* ==================== Gallery ក្នុងប្រអប់ខាងស្តាំ (poster) ==================== */
+.skill-detail.gallery {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-detail.gallery .marquee {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+}
+
+.skill-detail.gallery .marquee-track {
+    height: 100%;
+    align-items: center;
+}
+
+.skill-detail.gallery .project-card {
+    flex: 0 0 auto;
+    height: 75%;                          /* ទំហំ poster: ប្តូរ 60%-85% */
+    aspect-ratio: 3 / 4;                  /* poster បញ្ឈរ: ឬ 1 / 1, 16 / 10 */
+    margin-right: 30px;
+}
+
+.skill-detail.gallery .project-card:hover {
+    transform: scale(1.15);
+    z-index: 5;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+.skill-detail.gallery .project-card img {
+    position: static;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: contain;                  /* បង្ហាញ poster ពេញ មិនកាត់ */
+    background: var(--card-bg);
+}
+
+/* ==================== Footer ==================== */
+footer {
+    padding: 30px 10%;
+    text-align: center;
+    color: var(--muted);
+    background: var(--section-bg);
+}
+
+/* ==================== Mobile ==================== */
+@media (max-width: 768px) {
+    .navbar {
+        gap: 14px;
+        padding: 12px 18px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .skills-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-detail {
+        min-height: 320px;
+    }
+
+    .skill-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .project-card {
+        flex-basis: 70vw;
+    }
+}
+.project-card:hover,
+.skill-detail.gallery .project-card:hover {
+    transform: scale(1.1) !important;
+    z-index: 5 !important;
+}
+/* ==================== Skill detail hover ==================== */
+.skill-detail {
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.skill-detail:hover {
+    transform: translateY(-4px);
+    border-color: var(--secondary);
+    box-shadow: 0 12px 30px rgba(96, 165, 250, 0.3);
+}
+
+/* រូបខាងក្នុងពង្រីកបន្តិច */
+.skill-detail > img {
+    transition: transform 0.4s ease;
+}
+
+.skill-detail:hover > img {
+    transform: scale(1.28);
+}
+/* ==================== AI Chat ==================== */
+#contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    overflow-y: auto;
+    max-height: 55vh;
+}
+
+.msg {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    line-height: 1.6;
+    font-size: 16px;
+    white-space: pre-wrap;
+}
+
+.msg.bot {
+    align-self: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+}
+
+.msg.user {
+    align-self: flex-end;
+    background: var(--secondary);
+    color: #08080D;
+    font-weight: 500;
+}
+
+.msg.typing {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.chat-suggest {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 24px 14px;
+}
+
+.chat-suggest button {
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.chat-suggest button:hover {
+    border-color: var(--secondary);
+    background: rgba(96, 165, 250, 0.12);
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 14px 20px;
+    background: var(--card-bg);
+    color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+}
+
+.chat-input input:focus {
+    border-color: var(--secondary);
+}
+
+.chat-input button {
+    padding: 0 28px;
+    background: var(--secondary);
+    color: #08080D;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: var(--white);
+}
+
+.chat-input button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.video-card video {
+    display: none;
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+
+    object-fit: contain;
+    background: black;
+    border-radius: 12px;
+}
+
+/* Playing */
+
+.video-card.playing video {
+    display: block;
+}
+
+.portfolio-text {
+    position: absolute;
+    left: -180px;
+    bottom: -460px;
+    padding: 20px 50px;
+    z-index: 10;
+    border-radius: 15px;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    background: rgb(18, 18, 29);
+    color: rgba(255, 255, 255, 0.85);
+
+    box-shadow: 0px 0px 10px 5px gainsboro;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+    transition: background 0.4s ease,
+                color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+/* Light Mode */
+.portfolio-text.light-mode {
+    background: rgb(250, 249, 248);
+    color: black;
+
+    box-shadow: 0px 0px 10px 5px gainsboro;
+    text-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .portfolio-text {
+        left: 18px;
+        bottom: 20px;
+        font-size: 19px;
+    
+}
+@media (max-width:900px) {
+    .p{
+        display: none;
+    }
+}
+}
+h2{
+    font-size: 6rem;
+}
+p{
+    font-size: 2rem;
+}
+.aboutecon{
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: 1fr 3fr;
+    position: relative;
+}
+.aboutepic{
+    position: absolute;
+
+}
+.p{
+    width: 90rem;
+   transform: translate(580px);
+   transition: all 0.3px ease;
+   
+}
+.p:hover{
+    transform: scale(1.1);
+    transform: translate(600px);
+}
